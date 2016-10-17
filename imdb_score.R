@@ -18,5 +18,5 @@ p = predict(model1,newdata =  test_data)
 test_data$predicted_score = p
 q = test_data$imdb_score
 
-sum((p-q)*(p-q),na.rm = T)
+sqrt(sum((q-p)*(q-p),na.rm = T)/nrow(test_data))
 
