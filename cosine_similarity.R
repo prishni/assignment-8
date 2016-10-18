@@ -1,12 +1,13 @@
 
+
 mv <- read.csv("C:/Users/acer/Downloads/assignment8/movie_metadata.csv", stringsAsFactors=FALSE)
-#myVector = readline(prompt = "Enter the imdb link: ")
+input = readline(prompt = "Enter the imdb link: ")
 
 #selecting only numeric columns from data frame mv
 nums = sapply(mv, is.numeric)
 mvModified = mv[,nums]
 
-myVector = mvModified[mv$movie_imdb_link=="http://www.imdb.com/title/tt0104257/?ref_=fn_tt_tt_1",]
+myVector = mvModified[mv$movie_imdb_link==input,]
 #myVector = mvModified[mv$movie_title=="Iron Man 2Â ",]
 
 # or
@@ -46,7 +47,7 @@ for(i in 1:length(maximumMatch)){
   index[i] = which(unlist(cosineSimilarities) == maximumMatch[i]) 
   
 }
-mv[ndx,]
+mv[ndx,11]
 
 ####################################################################################3
 
@@ -64,4 +65,5 @@ for(vect in matrixOfVectors){
 }
 ndx = order(unlist(EuclideanDistance),decreasing = T)[2:6]
 maximumMatch = EuclideanDistance[ndx]
-mv[ndx,]
+mv[ndx,11]
+
