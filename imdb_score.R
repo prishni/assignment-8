@@ -20,4 +20,4 @@ q = test_data$imdb_score
 
 sqrt(sum((q-p)*(q-p),na.rm = T)/nrow(test_data))
 
-
+qplot(p, q, geom = c("point", "smooth"))
