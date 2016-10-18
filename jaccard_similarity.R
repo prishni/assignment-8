@@ -19,6 +19,7 @@ names(DirectorActorDuos3) = names(DirectorActorDuos1)
 DirectorActorDuos = unique(rbind(DirectorActorDuos1,DirectorActorDuos2,DirectorActorDuos3))
 
 dsummary = DirectorActorDuos%>%group_by(director_name,actor_2_name)%>%summarise(n = n())%>%arrange(desc(n))
+
 dsummary1 = dsummary[!((dsummary$director_name == "") | (dsummary$actor_2_name == "")),]
 
 jaccardSim = list()
@@ -42,3 +43,5 @@ ndx1 = order(unlist(jaccardSim),decreasing = T)[1:5]
 maximum = jaccardSim[ndx1]
 
 dsummary1[ndx1,c(1,2,3)]
+
+
