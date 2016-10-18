@@ -1,5 +1,5 @@
 library(dplyr)
-
+library(ggplot2)
 mv <- read.csv("C:/Users/acer/Downloads/assignment8/movie_metadata.csv", stringsAsFactors=FALSE)
 
 training_data = mv[1:4000,-c(17,10,22)]
@@ -19,4 +19,5 @@ test_data$predicted_score = p
 q = test_data$imdb_score
 
 sqrt(sum((q-p)*(q-p),na.rm = T)/nrow(test_data))
+
 
